@@ -1,29 +1,29 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= resource_name.to_s.humanize %> düzenle</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email, 'E-posta' %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Şu e-posta adresi için onay bekleniyor: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div><%= f.label :password, 'Şifre' %> <i>(Değiştirmek istemiyorsanız boş bırakınız)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation, 'Şifre (tekrar)' %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div><%= f.label :current_password, 'Şu anki şifre' %> <i>(Değişiklikleri kaydetmek için şu anki şifrenizi girmeniz gerekiyor)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Güncelle" %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Hesabımı iptal et</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p>Mutsuz musunuz? <%= button_to "Hesabımı sil", registration_path(resource_name), :data => { :confirm => "Emin misiniz?" }, :method => :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Geri", :back %>
